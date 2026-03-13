@@ -1,12 +1,19 @@
-# Qwen-Image-Edit-Angles - Despliegue Optimizado para RunPod
+# Qwen-Image-Edit-Angles - Triple Optimized Deployment
 
-## 📊 Análisis Dinámico de Hardware
-- **GPU Recomendada**: NVIDIA RTX 4000 / A4000 (16GB VRAM)
-- **RAM Calculada**: 38GB
-- **Disco de Volumen (Persistente)**: 120GB
+## 1. Despliegue en RunPod (Recomendado)
+- **GPU**: RTX 3060 / A2000 (12GB VRAM)
+- **Volume Disk**: 140GB
+- **Start Command**: 
+```bash
+bash -c "if [ ! -d '/workspace/app' ]; then git clone https://github.com/JERB78/Qwen-Image-Edit-Angles /workspace/app; else cd /workspace/app && git pull; fi && cd /workspace/app && pip install --upgrade pip && pip install -r requirements.txt && python app.py"
+```
 
-## 🚀 Configuración en RunPod
-- **Imagen**: `runpod/pytorch:2.2.1-py3.10-cuda12.1.1-devel-ubuntu22.04`
-- **Container Disk**: 40GB
-- **Volume Disk**: 120GB
-- **Comando de Inicio**: `bash -c "if [ ! -d '/workspace/app' ]; then git clone https://github.com/JERB78/Qwen-Image-Edit-Angles /workspace/app; else cd /workspace/app && git pull; fi && cd /workspace/app && pip install --upgrade pip && pip install -r requirements.txt && python app.py"`
+## 2. Despliegue con Docker
+```bash
+docker compose up --build
+```
+
+## 3. Instalación Local
+```bash
+chmod +x setup_local.sh && ./setup_local.sh
+```
