@@ -1,7 +1,8 @@
 git+https://github.com/huggingface/diffusers.git
 
-
-
+gradio
+qwen-vl-utils
+pillow
 transformers
 accelerate
 safetensors
