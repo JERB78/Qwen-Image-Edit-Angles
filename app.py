@@ -3,6 +3,12 @@ import numpy as np
 import random
 import torch
 import spaces
+except ImportError:
+    # Si no estamos en Hugging Face, creamos un decorador falso
+    class spaces:
+        @staticmethod
+        def GPU(func):
+            return func
 import base64
 from io import BytesIO
 
