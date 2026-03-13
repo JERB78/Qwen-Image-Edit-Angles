@@ -1,10 +1,8 @@
 version: '3.8'
 services:
-  app:
+  ai_app:
     build: .
-    container_name: Qwen-Image-Edit-Angles
     ports: ["7860:7860"]
-    volumes: ["/workspace/hf_cache:/workspace/hf_cache"]
     deploy:
       resources:
         reservations:
