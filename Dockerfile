@@ -8,7 +8,7 @@ RUN mkdir -p /workspace/hf_cache /workspace/.pip_cache
 RUN git clone https://github.com/JERB78/Qwen-Image-Edit-Angles app || true
 WORKDIR /workspace/app
 RUN pip install --upgrade pip && \
-    pip install --upgrade torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 && \
+    pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu121 && \
     pip install --no-cache-dir -r requirements.txt && \
     pip install --upgrade diffusers transformers accelerate peft
 EXPOSE 7860
