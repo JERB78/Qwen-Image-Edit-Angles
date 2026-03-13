@@ -12,3 +12,10 @@ short_description: Fast 4 step inference with Qwen Image Edit 2509
 ---
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+
+
+
+git clone https://github.com/JERB78/Qwen-Image-Edit-Angles
+cd Qwen-Image-Edit-Angles
+pip install -r requirements.txt
+python app.py
