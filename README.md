@@ -1,25 +1,19 @@
-# Qwen-Image-Edit-Angles - Optimized RunPod Deployment
+# Qwen-Image-Edit-Angles - Despliegue Optimizado en RunPod
 
-## 📊 Analyzed Hardware Profile
-- **GPU**: NVIDIA RTX 3090 / 4090 (Min 24GB VRAM required)
-- **System RAM**: 45GB recommended
-- **Volume Storage**: 120GB (Persistent /workspace)
+## 📊 Perfil de Hardware Analizado
+- **GPU**: NVIDIA RTX 3090 / 4090 (Mínimo 24GB VRAM)
+- **RAM Sistema**: 45GB recomendada
+- **Almacenamiento Volumen**: 150GB (Persistente en `/workspace`)
 
-## 🐳 Docker Deployment
-### Single Container
+## 🐳 Despliegue con Docker
 ```bash
-docker build -t qwen-editor .
-docker run --gpus all -p 7860:7860 -e HF_TOKEN=your_token qwen-editor
+docker build -t ai-cloner .
+docker run --gpus all -p 7860:7860 -e HF_TOKEN=tu_token ai-cloner
 ```
 
-### Docker Compose
-```bash
-docker-compose up --build
-```
-
-## 🚀 RunPod Template Configuration
+## 🚀 Configuración de Template en RunPod
 - **Docker Image**: `runpod/pytorch:2.2.1-py3.10-cuda12.1.1-devel-ubuntu22.04`
-- **Container Disk**: 20GB
-- **Volume Disk**: 120GB
+- **Container Disk**: 40GB
+- **Volume Disk**: 150GB
 - **Container Start Command**: 
-  `bash -c "git clone https://github.com/JERB78/Qwen-Image-Edit-Angles /workspace/app && cd /workspace/app && pip install -r requirements.txt && python app.py"`
+  `bash -c "if [ ! -d '/workspace/app' ]; then git clone https://github.com/JERB78/Qwen-Image-Edit-Angles /workspace/app; else cd /workspace/app && git pull; fi && cd /workspace/app && pip install --upgrade pip && pip install -r requirements.txt && python app.py"`
