@@ -1,4 +1,14 @@
 import os
+import torch
+
+# --- MONKEY PATCH PARA DIFFUSERS XPU BUG ---
+if not hasattr(torch, 'xpu'):
+    class XPUProxy:
+        is_available = lambda self: False
+        empty_cache = lambda self: None
+    torch.xpu = XPUProxy()
+# -------------------------------------------
+
 os.environ["GRADIO_SERVER_NAME"] = "0.0.0.0"
 os.environ["GRADIO_SERVER_PORT"] = "7860"
 
