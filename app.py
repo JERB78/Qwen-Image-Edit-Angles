@@ -120,7 +120,7 @@ def build_camera_prompt(
     return final_prompt if final_prompt else "no camera movement"
 
 
-@spaces.GPU
+# @spaces.GPU desactivado para ejecución local en RunPod
 def infer_camera_edit(
     image: Optional[Image.Image] = None,
     rotate_deg: float = 0.0,
