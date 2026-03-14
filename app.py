@@ -3,16 +3,24 @@ import sys
 import torch
 import types
 
-# --- GLOBAL MODULE SPOOFING (ANTI-CRASH) ---
+# --- GLOBAL MODULE SPOOFING (ANTI-CRASH v14.1) ---
 # Engaña a cualquier script que intente usar el decorador GPU de HuggingFace
 fake_spaces = types.ModuleType('spaces')
+
 def GPU(*args, **kwargs):
     def decorator(func):
         return func
     if len(args) == 1 and callable(args[0]):
         return args[0]
     return decorator
+
+# Bypass especifico para optimizaciones ZeroGPU (Qwen2.5)
+def fake_aoti_blocks_load(*args, **kwargs):
+    print("[SpaceCloner] Bypass de ZeroGPU AOT aplicado. Usando carga local nativa.")
+    pass
+
 fake_spaces.GPU = GPU
+fake_spaces.aoti_blocks_load = fake_aoti_blocks_load
 sys.modules['spaces'] = fake_spaces
 # -------------------------------------------
 
