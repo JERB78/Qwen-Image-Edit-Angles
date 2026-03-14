@@ -1,5 +1,5 @@
 #!/bin/bash
-# SpaceCloner Pro v13.1 - XPU Monkey-Patch Engine
+# SpaceCloner Pro v13.2 - Anti-ZeroGPU Engine
 export HF_HOME='/workspace/hf_cache'
 export PIP_CACHE_DIR='/workspace/.pip_cache'
 export GRADIO_SERVER_NAME="0.0.0.0"
@@ -14,7 +14,7 @@ pip install --upgrade pip
 pip install notebook
 nohup jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password='' --notebook-dir=/workspace > /workspace/jupyter.log 2>&1 &
 
-echo "--- 🚀 Iniciando SpaceCloner v13.1 ---"
+echo "--- 🚀 Iniciando SpaceCloner v13.2 ---"
 cd /workspace
 
 if [ -d "/workspace/app" ]; then
