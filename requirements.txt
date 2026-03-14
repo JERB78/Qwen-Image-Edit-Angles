@@ -8,7 +8,7 @@ safetensors
 sentencepiece
 dashscope
 kernels
-# torchvision # Bloqueado (Protección CUDA)
+# torchvision # Bloqueado (Protección Core v14.0)
 peft
 torchao==0.11.0
-# torch==2.8 # Bloqueado (Protección CUDA)
+# torch==2.8 # Bloqueado (Protección Core v14.0)
