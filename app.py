@@ -1,5 +1,20 @@
 import os
+import sys
 import torch
+import types
+
+# --- GLOBAL MODULE SPOOFING (ANTI-CRASH) ---
+# Engaña a cualquier script que intente usar el decorador GPU de HuggingFace
+fake_spaces = types.ModuleType('spaces')
+def GPU(*args, **kwargs):
+    def decorator(func):
+        return func
+    if len(args) == 1 and callable(args[0]):
+        return args[0]
+    return decorator
+fake_spaces.GPU = GPU
+sys.modules['spaces'] = fake_spaces
+# -------------------------------------------
 
 # --- MONKEY PATCH PARA DIFFUSERS XPU BUG ---
 if not hasattr(torch, 'xpu'):
@@ -120,7 +135,7 @@ def build_camera_prompt(
     return final_prompt if final_prompt else "no camera movement"
 
 
-# @spaces.GPU desactivado para ejecución local en RunPod
+@spaces.GPU
 def infer_camera_edit(
     image: Optional[Image.Image] = None,
     rotate_deg: float = 0.0,
