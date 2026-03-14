@@ -1,5 +1,5 @@
 #!/bin/bash
-# SpaceCloner Pro v13.0 - Clean Slate Engine
+# SpaceCloner Pro v13.1 - XPU Monkey-Patch Engine
 export HF_HOME='/workspace/hf_cache'
 export PIP_CACHE_DIR='/workspace/.pip_cache'
 export GRADIO_SERVER_NAME="0.0.0.0"
@@ -14,7 +14,7 @@ pip install --upgrade pip
 pip install notebook
 nohup jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password='' --notebook-dir=/workspace > /workspace/jupyter.log 2>&1 &
 
-echo "--- 🚀 Iniciando SpaceCloner v13.0 ---"
+echo "--- 🚀 Iniciando SpaceCloner v13.1 ---"
 cd /workspace
 
 if [ -d "/workspace/app" ]; then
@@ -28,7 +28,6 @@ else
 fi
 
 echo "--- 🛡️ Configurando Entorno Virtual Aislado ---"
-# --system-site-packages permite heredar los drivers de CUDA (PyTorch) pero aísla el resto.
 python3 -m venv --system-site-packages /workspace/venv
 source /workspace/venv/bin/activate
 
@@ -41,5 +40,5 @@ fi
 echo "--- 🌐 Instalando Librerías de Ecosistema HF ---"
 pip install gradio spaces huggingface_hub
 
-echo "--- 🏁 Ejecutando Aplicación en VENV ---"
+echo "--- 🏁 Ejecutando Aplicación Parcheada ---"
 python app.py
