@@ -1,5 +1,5 @@
 #!/bin/bash
-# SpaceCloner Pro v14.0 - Ultimate Stabilizer
+# SpaceCloner Pro v14.1 - Ultimate Stabilizer
 export HF_HOME='/workspace/hf_cache'
 export PIP_CACHE_DIR='/workspace/.pip_cache'
 export GRADIO_SERVER_NAME="0.0.0.0"
@@ -17,7 +17,7 @@ pip install --upgrade pip
 pip install notebook
 nohup jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password='' --notebook-dir=/workspace > /workspace/jupyter.log 2>&1 &
 
-echo "--- 🚀 Iniciando SpaceCloner v14.0 ---"
+echo "--- 🚀 Iniciando SpaceCloner v14.1 ---"
 cd /workspace
 
 if [ -d "/workspace/app" ]; then
