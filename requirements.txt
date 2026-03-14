@@ -1,14 +1,16 @@
-# git+https://github.com/huggingface/diffusers.git # Desactivado por SpaceCloner (Prevención de Conflictos)
+# git+https://github.com/huggingface/diffusers.git # Desactivado por SpaceCloner v12.0
 
 
 
-# transformers # Desactivado por SpaceCloner (Prevención de Conflictos)
-# accelerate # Desactivado por SpaceCloner (Prevención de Conflictos)
+# transformers # Desactivado por SpaceCloner v12.0
+# accelerate # Desactivado por SpaceCloner v12.0
 safetensors
 sentencepiece
 dashscope
 kernels
-# torchvision # Desactivado por SpaceCloner (Prevención de Conflictos)
-# peft # Desactivado por SpaceCloner (Prevención de Conflictos)
-# torchao==0.11.0 # Desactivado por SpaceCloner (Prevención de Conflictos)
-# torch==2.8 # Desactivado por SpaceCloner (Prevención de Conflictos)
+# torchvision # Desactivado por SpaceCloner v12.0
+# peft # Desactivado por SpaceCloner v12.0
+# torchao==0.11.0 # Desactivado por SpaceCloner v12.0
+# torch==2.8 # Desactivado por SpaceCloner v12.0
+
+# Patched by SpaceCloner v12.0
