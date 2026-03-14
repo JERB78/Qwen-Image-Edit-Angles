@@ -1,3 +1,7 @@
+import os
+os.environ["GRADIO_SERVER_NAME"] = "0.0.0.0"
+os.environ["GRADIO_SERVER_PORT"] = "7860"
+
 import gradio as gr
 import numpy as np
 import random
@@ -866,4 +870,4 @@ with gr.Blocks() as demo:
     gr.api(create_video_between_images, api_name="create_video_between_images")
 
 head = '<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>'
-demo.launch(server_name="0.0.0.0", server_port=7860, mcp_server=True, css=css, theme=gr.themes.Citrus(), head=head, footer_links=["api", "gradio", "settings"])
+demo.launch(mcp_server=True, css=css, theme=gr.themes.Citrus(), head=head, footer_links=["api", "gradio", "settings"])
