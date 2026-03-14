@@ -47,7 +47,7 @@ INDUCTOR_CONFIGS = {
 
 def optimize_pipeline_(pipeline: Callable[P, Any], *args: P.args, **kwargs: P.kwargs):
 
-    # @spaces.GPU desactivado para ejecución local en RunPod
+    @spaces.GPU(duration=1500)
     def compile_transformer():
 
         with spaces.aoti_capture(pipeline.transformer) as call:
