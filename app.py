@@ -3,12 +3,6 @@ import numpy as np
 import random
 import torch
 import spaces
-except ImportError:
-    # Si no estamos en Hugging Face, creamos un decorador falso
-    class spaces:
-        @staticmethod
-        def GPU(func):
-            return func
 import base64
 from io import BytesIO
 
@@ -872,4 +866,4 @@ with gr.Blocks() as demo:
     gr.api(create_video_between_images, api_name="create_video_between_images")
 
 head = '<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>'
-demo.launch(mcp_server=True, css=css, theme=gr.themes.Citrus(), head=head, footer_links=["api", "gradio", "settings"])
+demo.launch(server_name="0.0.0.0", server_port=7860, mcp_server=True, css=css, theme=gr.themes.Citrus(), head=head, footer_links=["api", "gradio", "settings"])
