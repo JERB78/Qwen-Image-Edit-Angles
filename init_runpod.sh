@@ -1,5 +1,5 @@
 #!/bin/bash
-# SpaceCloner Pro v11.2 - Multi-Tool Workspace
+# SpaceCloner Pro v11.3 - Universal Dependency Engine
 export HF_HOME='/workspace/hf_cache'
 export PIP_CACHE_DIR='/workspace/.pip_cache'
 export GRADIO_SERVER_NAME="0.0.0.0"
@@ -14,7 +14,7 @@ pip install --upgrade pip
 pip install notebook
 nohup jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password='' --notebook-dir=/workspace > /workspace/jupyter.log 2>&1 &
 
-echo "--- 🚀 Iniciando SpaceCloner v11.2 ---"
+echo "--- 🚀 Iniciando SpaceCloner v11.3 ---"
 cd /workspace
 
 if [ -d "/workspace/app" ]; then
@@ -35,7 +35,8 @@ if [ -f "requirements.txt" ]; then
 fi
 
 echo "--- 🛡️ Aplicando Override Master (Estabilidad) ---"
-pip install --no-cache-dir diffusers==0.30.0 transformers==4.44.0 accelerate==0.33.0 peft==0.12.0
+# Inyección forzada de librerías universales de UI HF (Gradio, Spaces)
+pip install --no-cache-dir diffusers==0.30.0 transformers==4.44.0 accelerate==0.33.0 peft==0.12.0 gradio spaces huggingface_hub
 
 echo "--- 🔒 Blindando entorno contra rogue installs ---"
 echo "" > requirements.txt
